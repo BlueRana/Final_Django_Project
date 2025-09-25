@@ -94,10 +94,11 @@ class Enrollment(models.Model):
     mode = models.CharField(max_length=5, choices=COURSE_MODES, default=AUDIT)
     rating = models.FloatField(default=5.0)
 
+# Question Model
 class Question(models.Model):
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
     content = models.CharField(max_length=200)
-    grade = model.IntegerField(default=50)
+    grade = models.IntegerField(default=50)
 
     def __str__(self):
         return "Question: " + self.content
@@ -111,6 +112,7 @@ class Question(models.Model):
         else:
             return False
 
+# Choice Model
 class Choice(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     content = models.CharField(max_length=200)
