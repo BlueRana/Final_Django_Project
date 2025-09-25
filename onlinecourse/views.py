@@ -152,9 +152,5 @@ def show_exam_result(request, course_id, submission_id):
             total_score += question.grade  # Add the question's grade only if all correct answers are selected
     context['course'] = course
     context['grade'] = total_score
-    context['choises'] = choices
-    return render(request, 'onlinecourse/course_detail_bootstrap.html', context)
-
-
-
-
+    context['choices'] = choices
+    return render(request, 'onlinecourse/exam_result_bootstrap.html', context)
