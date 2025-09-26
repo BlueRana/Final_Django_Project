@@ -58,7 +58,7 @@
                 <button class="btn btn-primary btn-block" data-toggle="collapse" data-target="#exam">Start Exam</button>
                 <!-- Collapsable-->
                 <div id = "exam" class = "collapse">
-                     <!-- Question Logic-->
+                    <!-- Question Logic-->>
                     <form id = "questionform" action = "{% url "onlinecourse:submit" course.id %}" method = "POST">
                         {% for question in course.question_set.all %}
                         <!-- Question UI-->
@@ -67,7 +67,7 @@
                             {% csrf_token %}
                             <div class="form-group">
                                 <!--Choice Component-->
-                                {% for choice in question.choice.all %}
+                                {% for choice in question.choice_set.all %}
                                 <div class="form-check">
                                     <label class="form-check-label">
                                         <input type="checkbox" name="choice_{{choice.id}}" class="form-check-input" 
@@ -82,6 +82,6 @@
                     </form>
                 </div>
                 {% endif %}
-    </div>
+        </div>
 </body>
 </html>
